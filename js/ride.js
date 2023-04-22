@@ -37,9 +37,7 @@ let map;
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
                 console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
                 console.error('Response: ', jqXHR.responseText);
-                //alert('An error occurred when requesting your unicorn:\n' + jqXHR.responseText);
-                displayUpdate('Percy Tizio, your yellow unicorn, is on his way.', yellow);
-
+                alert('An error occurred when requesting your unicorn:\n' + jqXHR.responseText + '\n' + textStatus + '\n' + errorThrown);
             }
         });
     }
