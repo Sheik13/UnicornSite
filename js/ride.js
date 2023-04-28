@@ -184,6 +184,7 @@ let map;
         var pickupLocation =  WildRydes.map.selectedPoint;
 
         getFact();
+        getCatPic();
 
         event.preventDefault();
         requestUnicorn(pickupLocation);
