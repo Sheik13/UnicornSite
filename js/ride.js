@@ -49,8 +49,8 @@ let map;
             url: 'https://api.api-ninjas.com/v1/facts?limit=' + limit,
             headers: { 'X-Api-Key': 'YOUR_API_KEY'},
             contentType: 'application/json',
-            success: function(result) {
-                return result;
+            success: function(result) {       
+                displayUpdate("Here's a fact while you wait: " + result);
             },
             error: function ajaxError(jqXHR) {
                 console.error('Error: ', jqXHR.responseText);
@@ -157,10 +157,7 @@ let map;
     function handleRequestClick(event) {
         var pickupLocation =  WildRydes.map.selectedPoint;
 
-        let fact;
-        fact = getFact();
-
-        displayUpdate("Here's a fact while you wait: " + fact);
+        getFact();
 
         event.preventDefault();
         requestUnicorn(pickupLocation);
