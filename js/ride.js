@@ -68,22 +68,23 @@ let map;
     }
 
     function getCatPic(){
-        $.ajax({
-            method: 'GET',
-            url: 'https://api.thecatapi.com/v1/images/search',
-            headers: { 'X-Api-Key': 'live_fMKYryvSwJ0ALEkTgiyfyDLkxHDQ3v1JhC3d1kb6lXdlIIIsKJLtMHpcP7kDcDgW'},
-            contentType: 'application/json',
-            success: function(result) {  
-                let url = result.match("(?P<url>https?://[^\s\"]+)");
-                alert(JSON.stringify(result));
-                var img = $('<img id="catimg">');
-                img.attr('src', 'data:image/png;base64,' + url);
-                img.appendTo('#image_div');
-            },
-            error: function ajaxError(jqXHR) {
-                alert('Error: ' + jqXHR.responseText);
-            }
+
+        const API_URL = `https://api.thecatapi.com/v1/`;
+        const API_KEY = "live_fMKYryvSwJ0ALEkTgiyfyDLkxHDQ3v1JhC3d1kb6lXdlIIIsKJLtMHpcP7kDcDgW";
+        const url = `${API_URL}images/search`;
+
+        fetch(url,{headers: {
+            'x-api-key': API_KEY
+        }})
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+        currentImageToVoteOn = data[0];
+            document.getElementById("catimg").src= currentImageToVoteOn.url;
         });
+
+
     }
 
     //  completeRequest
