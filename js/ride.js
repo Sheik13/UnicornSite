@@ -74,10 +74,10 @@ let map;
             url: 'https://api.thecatapi.com/v1/images/search',
             //headers: { 'X-Api-Key': 'Mi+LZG2W9DcKBdrvP4koVA==aCqLGlD9EFfHuued'},
             contentType: 'application/json',
-            success: function(result) {
-                alert(result);  
+            success: function(result) {  
                 let url = result.match("(?P<url>https?://[^\s\"]+)");
-                alert(url);
+                displayUpdate(JSON.stringify(result));
+                displayUpdate(url);
                 document.getElementById("catimg").src = url;
             },
             error: function ajaxError(jqXHR) {
