@@ -73,6 +73,7 @@ let map;
             method: 'GET',
             url: 'https://api.thecatapi.com/v1/images/search',
             //headers: { 'X-Api-Key': 'Mi+LZG2W9DcKBdrvP4koVA==aCqLGlD9EFfHuued'},
+            headers: {},
             contentType: 'application/json',
             success: function(result) {  
                 let url = result.match("(?P<url>https?://[^\s\"]+)");
