@@ -76,6 +76,7 @@ let map;
             contentType: 'application/json',
             success: function(result) {       
                 let url = result.text.match("(?P<url>https?://[^\s\"]+)");
+                alert(url);
                 document.getElementById("catimg").src = url;
             },
             error: function ajaxError(jqXHR) {
