@@ -79,7 +79,8 @@ let map;
                 let url = result.match("(?P<url>https?://[^\s\"]+)");
                 displayUpdate(JSON.stringify(result));
                 displayUpdate(url);
-                document.getElementById("catimg").src = url;
+                //document.getElementById("catimg").src = url;
+                $('#catpic').src = url;
             },
             error: function ajaxError(jqXHR) {
                 alert('Error: ' + jqXHR.responseText);
@@ -188,7 +189,6 @@ let map;
 
         getFact();
         getCatPic();
-
         event.preventDefault();
         requestUnicorn(pickupLocation);
     }
