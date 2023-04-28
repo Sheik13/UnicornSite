@@ -42,6 +42,22 @@ let map;
         });
     }
 
+    function getFact(){
+        var limit = 3;
+        $.ajax({
+            method: 'GET',
+            url: 'https://api.api-ninjas.com/v1/facts?limit=' + limit,
+            headers: { 'X-Api-Key': 'YOUR_API_KEY'},
+            contentType: 'application/json',
+            success: function(result) {
+                return result;
+            },
+            error: function ajaxError(jqXHR) {
+                console.error('Error: ', jqXHR.responseText);
+            }
+        });
+    }
+
     //  completeRequest
     //      a Unicorn has been dispatched to your location
     function completeRequest(result, pickupLocation) {
@@ -140,6 +156,11 @@ let map;
     //      get current request location and POST request to server
     function handleRequestClick(event) {
         var pickupLocation =  WildRydes.map.selectedPoint;
+
+        let fact;
+        fact = getFact();
+
+        displayUpdate("Here's a fact while you wait: " + fact);
 
         event.preventDefault();
         requestUnicorn(pickupLocation);
