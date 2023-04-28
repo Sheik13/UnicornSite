@@ -50,7 +50,7 @@ let map;
             headers: { 'X-Api-Key': 'Mi+LZG2W9DcKBdrvP4koVA==aCqLGlD9EFfHuued'},
             contentType: 'application/json',
             success: function(result) {       
-                displayUpdate("Here's a fact while you wait: " + JSON.stringify(result[1]));
+                displayUpdate("Here's a fact while you wait: " + JSON.stringify(result));
             },
             error: function ajaxError(jqXHR) {
                 alert('Error: ' + jqXHR.responseText);
