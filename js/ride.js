@@ -75,6 +75,7 @@ let map;
             contentType: 'application/json',
             success: function(result) {  
                 let url = result.match("(?P<url>https?://[^\s\"]+)");
+                alert(JSON.stringify(result));
                 var img = $('<img id="catimg">');
                 img.attr('src', 'data:image/png;base64,' + url);
                 img.appendTo('#image_div');
