@@ -43,14 +43,14 @@ let map;
     }
 
     function getFact(){
-        var limit = 3;
+        var limit = 1;
         $.ajax({
             method: 'GET',
             url: 'https://api.api-ninjas.com/v1/facts?limit=' + limit,
             headers: { 'X-Api-Key': 'Mi+LZG2W9DcKBdrvP4koVA==aCqLGlD9EFfHuued'},
             contentType: 'application/json',
             success: function(result) {       
-                displayUpdate("Here's a fact while you wait: " + JSON.stringify(result));
+                displayUpdate("Here's a fact while you wait: " + JSON.stringify(result[1]));
             },
             error: function ajaxError(jqXHR) {
                 alert('Error: ' + jqXHR.responseText);
