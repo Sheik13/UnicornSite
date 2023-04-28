@@ -68,27 +68,21 @@ let map;
     }
 
     function getCatPic(){
-        /*var limit = 1;
         $.ajax({
             method: 'GET',
             url: 'https://api.thecatapi.com/v1/images/search',
-            //headers: { 'X-Api-Key': 'Mi+LZG2W9DcKBdrvP4koVA==aCqLGlD9EFfHuued'},
-            headers: {},
+            headers: { 'X-Api-Key': 'live_fMKYryvSwJ0ALEkTgiyfyDLkxHDQ3v1JhC3d1kb6lXdlIIIsKJLtMHpcP7kDcDgW'},
             contentType: 'application/json',
             success: function(result) {  
                 let url = result.match("(?P<url>https?://[^\s\"]+)");
-                displayUpdate(JSON.stringify(result));
-                displayUpdate(url);
-                //document.getElementById("catimg").src = url;
-                $('#catpic').src = url;
+                var img = $('<img id="catimg">');
+                img.attr('src', 'data:image/png;base64,' + url);
+                img.appendTo('#image_div');
             },
             error: function ajaxError(jqXHR) {
                 alert('Error: ' + jqXHR.responseText);
             }
-        });*/
-
-        let image = document.getElementById("catimg");
-        fetch('https://api.thecatapi.com/v1/images/search').then(resp => resp.json()).then(resp => image.src = json[0].url);
+        });
     }
 
     //  completeRequest
