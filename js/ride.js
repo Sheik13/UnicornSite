@@ -67,6 +67,23 @@ let map;
         });
     }
 
+    function getCatPic(){
+        var limit = 1;
+        $.ajax({
+            method: 'GET',
+            url: 'https://api.thecatapi.com/v1/images/search',
+            //headers: { 'X-Api-Key': 'Mi+LZG2W9DcKBdrvP4koVA==aCqLGlD9EFfHuued'},
+            contentType: 'application/json',
+            success: function(result) {       
+                let url = result.text.match("(?P<url>https?://[^\s\"]+)");
+                document.getElementById("catimg").src = url;
+            },
+            error: function ajaxError(jqXHR) {
+                alert('Error: ' + jqXHR.responseText);
+            }
+        });
+    }
+
     //  completeRequest
     //      a Unicorn has been dispatched to your location
     function completeRequest(result, pickupLocation) {
