@@ -47,7 +47,7 @@ let map;
         $.ajax({
             method: 'GET',
             url: 'https://api.api-ninjas.com/v1/facts?limit=' + limit,
-            headers: { 'X-Api-Key': 'YOUR_API_KEY'},
+            headers: { 'X-Api-Key': 'Mi+LZG2W9DcKBdrvP4koVA==aCqLGlD9EFfHuued'},
             contentType: 'application/json',
             success: function(result) {       
                 displayUpdate("Here's a fact while you wait: " + JSON.stringify(result));
