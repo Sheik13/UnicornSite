@@ -68,7 +68,7 @@ let map;
     }
 
     function getCatPic(){
-        var limit = 1;
+        /*var limit = 1;
         $.ajax({
             method: 'GET',
             url: 'https://api.thecatapi.com/v1/images/search',
@@ -85,7 +85,10 @@ let map;
             error: function ajaxError(jqXHR) {
                 alert('Error: ' + jqXHR.responseText);
             }
-        });
+        });*/
+
+        let image = document.getElementById("catimg");
+        fetch('https://api.thecatapi.com/v1/images/search').then(resp => resp.json()).then(resp => image.src = json[0].url);
     }
 
     //  completeRequest
