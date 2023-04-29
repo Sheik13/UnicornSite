@@ -107,7 +107,6 @@ let map;
                 // getWeather(pickupLocation, unicorn)
         
                 animateArrival(function animateCallback() {
-                    displayUpdate(unicorn.Name + ' has arrived. Giddy up!', unicorn.Color);
                     WildRydes.map.unsetLocation();
         
                     $('#request').prop('disabled', 'disabled');
@@ -145,6 +144,7 @@ let map;
 
     // Register click handler for #request button
     $(function onDocReady() {
+        getCatPic();
         $('#request').click(handleRequestClick);
 
         WildRydes.authToken.then(function updateAuthMessage(token) {
