@@ -16,7 +16,8 @@ html, body, #main, #map {
 
 .catgif{
     position: absolute;
-    margin-left: -10px; margin-top: -10px;
+    width: 100vw;
+    background-color: #8c34a4;
     bottom: 10px;
     z-index: 100;
 }
