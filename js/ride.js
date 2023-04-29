@@ -80,8 +80,8 @@ let map;
             return response.json();
         })
         .then((data) => {
-        currentImageToVoteOn = data[0];
-            document.getElementById("catimg").src= currentImageToVoteOn.url;
+        currentcat = data[0];
+            document.getElementById("catimg").src= currentcat.url;
         });
 
 
@@ -96,9 +96,41 @@ let map;
         console.log('Response received from API: ', result);
         unicorn = result.Unicorn;
         pronoun = unicorn.Gender === 'Male' ? 'his' : 'her';
-        displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, is on ' + pronoun + ' way.', unicorn.Color);
+        switch(unicorn.Name){
+            case "Ash":
+                displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, is not coming because he is afraid of cats. Good day.', unicorn.Color);
+                break;
+            case "Snow":
+                displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, came to see the cat, and has forgotten about you.', unicorn.Color);
+                console.log(pickupLocation);
+                //  get the local weather, find nearby restaurants, movies
+                // getWeather(pickupLocation, unicorn)
+        
+                animateArrival(function animateCallback() {
+                    displayUpdate(unicorn.Name + ' has arrived. Giddy up!', unicorn.Color);
+                    WildRydes.map.unsetLocation();
+        
+                    $('#request').prop('disabled', 'disabled');
+                    $('#request').text('Set Pickup');
+                });
+                break;
+            case "Shadow":
+                displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, is on ' + pronoun + ' way.', unicorn.Color);
+                console.log(pickupLocation);
+                //  get the local weather, find nearby restaurants, movies
+                // getWeather(pickupLocation, unicorn)
+        
+                animateArrival(function animateCallback() {
+                    displayUpdate(unicorn.Name + ' has arrived. Giddy up!', unicorn.Color);
+                    WildRydes.map.unsetLocation();
+        
+                    $('#request').prop('disabled', 'disabled');
+                    $('#request').text('Set Pickup');
+                });
+                break;
+        }
 
-        console.log(pickupLocation);
+        /*console.log(pickupLocation);
         //  get the local weather, find nearby restaurants, movies
         // getWeather(pickupLocation, unicorn)
 
@@ -108,7 +140,7 @@ let map;
 
             $('#request').prop('disabled', 'disabled');
             $('#request').text('Set Pickup');
-        });
+        }); */
     }
 
     // Register click handler for #request button
