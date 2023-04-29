@@ -11,7 +11,8 @@ html, body, #main, #map {
     top: 10px;
     z-index: 100;
     width: 275px;
-    background: transparent;
+    padding: 6px;
+    background: purple;
 }
 
 .info {
