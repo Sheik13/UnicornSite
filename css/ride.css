@@ -21,11 +21,6 @@ html, body, #main, #map {
     bottom: 10px;
     z-index: 100;
 }
-.catbackground{
-    background-color: black;
-    z-index: 90;
-    padding: 6px;
-}
 
 .info {
     position: absolute;
