@@ -10,7 +10,7 @@ html, body, #main, #map {
     left: 10px;
     top: 10px;
     z-index: 100;
-    padding: 1px;
+    padding: 6px;
     background: purple;
 }
 
@@ -20,6 +20,10 @@ html, body, #main, #map {
     background-color: #A475A0;
     bottom: 10px;
     z-index: 100;
+}
+.catbackground{
+    background-color: black;
+    padding: 6px;
 }
 
 .info {
