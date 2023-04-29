@@ -23,6 +23,7 @@ html, body, #main, #map {
 }
 .catbackground{
     background-color: black;
+    z-index: 90;
     padding: 6px;
 }
 
