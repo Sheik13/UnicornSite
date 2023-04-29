@@ -11,8 +11,24 @@ html, body, #main, #map {
     top: 10px;
     z-index: 100;
     width: 275px;
-    padding: 6px;
+    padding: 1px;
     background: purple;
+}
+
+@keyframes motion {
+    0.000% { left: 30%; top: 70%; }
+    33.33% { left: 70%; top: 70%; }
+    66.66% { left: 50%; top: 30%; }
+    100.0% { left: 30%; top: 70%; }
+  }
+
+.catgif{
+    position: absolute;
+    width: 20px; height: 20px;
+    margin-left: -10px; margin-top: -10px;
+    border-radius: 100%;
+    
+    animation: motion 2000ms infinite linear;
 }
 
 .info {
