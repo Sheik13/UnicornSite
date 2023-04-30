@@ -109,8 +109,8 @@ let map;
                 animateArrival(function animateCallback() {
                     WildRydes.map.unsetLocation();
         
-                    $('#request').prop('disabled', 'disabled');
-                    $('#request').text('Set Pickup');
+                    $('#requestSnow').prop('disabled', 'disabled');
+                    $('#requestSnow').text('Set Pickup');
                 });
                 break;
             case "Shadow":
@@ -123,8 +123,8 @@ let map;
                     displayUpdate(unicorn.Name + ' has arrived. Giddy up!', unicorn.Color);
                     WildRydes.map.unsetLocation();
         
-                    $('#request').prop('disabled', 'disabled');
-                    $('#request').text('Set Pickup');
+                    $('#requestShadow').prop('disabled', 'disabled');
+                    $('#requestShadow').text('Set Pickup');
                 });
                 break;
         }
@@ -146,6 +146,9 @@ let map;
     $(function onDocReady() {
         getCatPic();
         $('#request').click(handleRequestClick);
+        $('#requestAsh').click(handleRequestClickAsh);
+        $('#requestSnow').click(handleRequestClickSnow);
+        $('#requestShadow').click(handleRequestClickShadow);
 
         WildRydes.authToken.then(function updateAuthMessage(token) {
             if (token) {
@@ -208,8 +211,20 @@ let map;
     //  handlePickupChanged
     //      enable the Pickup button and set text to Request Unicorn
     function handlePickupChanged() {
-        var requestButton = $('#request');
-        requestButton.text('Request Unicorn');
+        var requestButton = $('#requestAsh');
+        requestButton.text('Request Ash');
+        requestButton.prop('disabled', false);
+
+        requestButton = $('#requestSnow');
+        requestButton.text('Request Snow');
+        requestButton.prop('disabled', false);
+
+        requestButton = $('#request');
+        requestButton.text('Request Shadow');
+        requestButton.prop('disabled', false);
+
+        requestButton = $('#request');
+        requestButton.text('Request Random Unicorn');
         requestButton.prop('disabled', false);
     }
 
@@ -222,6 +237,54 @@ let map;
         getCatPic();
         event.preventDefault();
         requestUnicorn(pickupLocation);
+    }
+
+    function handleRequestClickAsh(event) {
+        var pickupLocation =  WildRydes.map.selectedPoint;
+
+        getFact();
+        getCatPic();
+        event.preventDefault();
+        let result = {
+            Unicorn: {
+                name: "Ash",
+                Gender: "Male"
+            }
+        };
+
+        completeRequest(result, pickupLocation);
+    }
+
+    function handleRequestClickSnow(event) {
+        var pickupLocation =  WildRydes.map.selectedPoint;
+
+        getFact();
+        getCatPic();
+        event.preventDefault();
+        let result = {
+            Unicorn: {
+                name: "Snow",
+                Gender: "Male"
+            }
+        };
+
+        completeRequest(result, pickupLocation);
+    }
+
+    function handleRequestClickShadow(event) {
+        var pickupLocation =  WildRydes.map.selectedPoint;
+
+        getFact();
+        getCatPic();
+        event.preventDefault();
+        let result = {
+            Unicorn: {
+                name: "Shadow",
+                Gender: "Female"
+            }
+        };
+
+        completeRequest(result, pickupLocation);
     }
 
     //  animateArrival
