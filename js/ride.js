@@ -108,9 +108,18 @@ let map;
         
                 animateArrival(function animateCallback() {
                     WildRydes.map.unsetLocation();
-        
+
+                    $('#requestAsh').prop('disabled', 'disabled');
+                    $('#requestAsh').text('Set Pickup');
+
+                    $('#requestShadow').prop('disabled', 'disabled');
+                    $('#requestShadow').text('Set Pickup');
+
                     $('#requestSnow').prop('disabled', 'disabled');
                     $('#requestSnow').text('Set Pickup');
+        
+                    $('#request').prop('disabled', 'disabled');
+                    $('#request').text('Set Pickup');
                 });
                 break;
             case "Shadow":
@@ -122,9 +131,18 @@ let map;
                 animateArrival(function animateCallback() {
                     displayUpdate(unicorn.Name + ' has arrived. Giddy up!', unicorn.Color);
                     WildRydes.map.unsetLocation();
-        
+
+                    $('#requestAsh').prop('disabled', 'disabled');
+                    $('#requestAsh').text('Set Pickup');
+
                     $('#requestShadow').prop('disabled', 'disabled');
                     $('#requestShadow').text('Set Pickup');
+
+                    $('#requestSnow').prop('disabled', 'disabled');
+                    $('#requestSnow').text('Set Pickup');
+        
+                    $('#request').prop('disabled', 'disabled');
+                    $('#request').text('Set Pickup');
                 });
                 break;
         }
@@ -261,9 +279,18 @@ let map;
         
                 animateArrival(function animateCallback() {
                     WildRydes.map.unsetLocation();
-        
+
+                    $('#requestAsh').prop('disabled', 'disabled');
+                    $('#requestAsh').text('Set Pickup');
+
+                    $('#requestShadow').prop('disabled', 'disabled');
+                    $('#requestShadow').text('Set Pickup');
+
                     $('#requestSnow').prop('disabled', 'disabled');
                     $('#requestSnow').text('Set Pickup');
+        
+                    $('#request').prop('disabled', 'disabled');
+                    $('#request').text('Set Pickup');
                 });
     }
 
@@ -280,9 +307,18 @@ let map;
                 animateArrival(function animateCallback() {
                     displayUpdate(unicorn.Name + ' has arrived. Giddy up!', unicorn.Color);
                     WildRydes.map.unsetLocation();
-        
+
+                    $('#requestAsh').prop('disabled', 'disabled');
+                    $('#requestAsh').text('Set Pickup');
+
                     $('#requestShadow').prop('disabled', 'disabled');
                     $('#requestShadow').text('Set Pickup');
+
+                    $('#requestSnow').prop('disabled', 'disabled');
+                    $('#requestSnow').text('Set Pickup');
+        
+                    $('#request').prop('disabled', 'disabled');
+                    $('#request').text('Set Pickup');
                 });
     }
 
