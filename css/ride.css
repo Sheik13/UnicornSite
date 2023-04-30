@@ -42,7 +42,7 @@ html, body, #main, #map {
 }
 
 .panel-heading{
-    height: 300px;
+    height: 150px;
 }
 #request {
     position: relative;
@@ -61,7 +61,7 @@ html, body, #main, #map {
     border-color: #000;
     border-radius: 5px;
     text-align: center;
-    width: 200px;
+    width: 66px;
 }
 
 #requestSnow {
@@ -71,7 +71,7 @@ html, body, #main, #map {
     border-color: #000;
     border-radius: 5px;
     text-align: center;
-    width: 200px;
+    width: 66px;
 }
 
 #requestAsh {
@@ -81,7 +81,7 @@ html, body, #main, #map {
     border-color: #000;
     border-radius: 5px;
     text-align: center;
-    width: 200px;
+    width: 66px;
 }
 
 #request:disabled {
