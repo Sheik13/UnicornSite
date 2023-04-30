@@ -41,6 +41,9 @@ html, body, #main, #map {
     background: transparent;
 }
 
+.panel-heading{
+    height: 300px;
+}
 #request {
     position: relative;
     background: #fcc1d4 none repeat scroll 0 0;
