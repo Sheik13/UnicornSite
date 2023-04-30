@@ -128,7 +128,7 @@ let map;
                 fact = fact.replace('[', '');
                 fact = fact.replace(']', '');
                 fact = fact.substring(3,fact.length-1);
-                displayUpdate("Here's a fact while you wait: " + fact);
+                displayUpdate("Here's a fact while you wait: " + fact, "Pink");
             },
             error: function ajaxError(jqXHR) {
                 alert('Error: ' + jqXHR.responseText);
