@@ -12,7 +12,8 @@ html, body, #main, #map {
     z-index: 100;
     padding: 6px;
     background: purple;
-    outline: #000;
+    outline-style: solid;
+    outline-color: black;
     outline-width: 2px;
 }
 
@@ -22,7 +23,8 @@ html, body, #main, #map {
     background-color: #A475A0;
     bottom: 10px;
     z-index: 100;
-    outline: #000;
+    outline-style: solid;
+    outline-color: black;
     outline-width: 2px;
 }
 
