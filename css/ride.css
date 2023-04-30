@@ -48,7 +48,37 @@ html, body, #main, #map {
     border-color: #000;
     border-radius: 5px;
     text-align: center;
-    width: 135px;
+    width: 200px;
+}
+
+#requestShadow {
+    position: relative;
+    background: purple none repeat scroll 0 0;
+    color: #000;
+    border-color: #000;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+}
+
+#requestSnow {
+    position: relative;
+    background: grey none repeat scroll 0 0;
+    color: #000;
+    border-color: #000;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+}
+
+#requestAsh {
+    position: relative;
+    background: white none repeat scroll 0 0;
+    color: #000;
+    border-color: #000;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
 }
 
 #request:disabled {
