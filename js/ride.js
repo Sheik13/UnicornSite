@@ -42,6 +42,75 @@ let map;
         });
     }
 
+    function requestUnicornAsh(pickupLocation) {
+        $.ajax({
+            method: 'POST',
+            url: _config.api.invokeUrl + '/ride',
+            headers: {
+                Authorization: authToken
+            },
+            data: JSON.stringify({
+                PickupLocation: {
+                    Latitude: pickupLocation.latitude,
+                    Longitude: pickupLocation.longitude
+                }
+            }),
+            contentType: 'application/json',
+            success: result => completeRequestAsh(result, pickupLocation),
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occurred when requesting your unicorn:\n' + jqXHR.responseText + '\n' + textStatus + '\n' + errorThrown);
+            }
+        });
+    }
+
+    function requestUnicornSnow(pickupLocation) {
+        $.ajax({
+            method: 'POST',
+            url: _config.api.invokeUrl + '/ride',
+            headers: {
+                Authorization: authToken
+            },
+            data: JSON.stringify({
+                PickupLocation: {
+                    Latitude: pickupLocation.latitude,
+                    Longitude: pickupLocation.longitude
+                }
+            }),
+            contentType: 'application/json',
+            success: result => completeRequestSnow(result, pickupLocation),
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occurred when requesting your unicorn:\n' + jqXHR.responseText + '\n' + textStatus + '\n' + errorThrown);
+            }
+        });
+    }
+
+    function requestUnicornShadow(pickupLocation) {
+        $.ajax({
+            method: 'POST',
+            url: _config.api.invokeUrl + '/ride',
+            headers: {
+                Authorization: authToken
+            },
+            data: JSON.stringify({
+                PickupLocation: {
+                    Latitude: pickupLocation.latitude,
+                    Longitude: pickupLocation.longitude
+                }
+            }),
+            contentType: 'application/json',
+            success: result => completeRequestShadow(result, pickupLocation),
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occurred when requesting your unicorn:\n' + jqXHR.responseText + '\n' + textStatus + '\n' + errorThrown);
+            }
+        });
+    }
+
     function getFact(){
         var limit = 1;
         $.ajax({
@@ -160,6 +229,69 @@ let map;
         }); */
     }
 
+    function completeRequestSnow(result, pickupLocation) {
+
+
+        console.log('Response received from API: ', result);
+
+
+                displayUpdate('Snow, your Grey unicorn, came to see the cat, and has forgotten about you.', "Grey");
+                console.log(pickupLocation);
+                //  get the local weather, find nearby restaurants, movies
+                // getWeather(pickupLocation, unicorn)
+        
+                animateArrival(function animateCallback() {
+                    WildRydes.map.unsetLocation();
+
+                    $('#requestAsh').prop('disabled', 'disabled');
+                    $('#requestAsh').text('Set Pickup');
+
+                    $('#requestShadow').prop('disabled', 'disabled');
+                    $('#requestShadow').text('Set Pickup');
+
+                    $('#requestSnow').prop('disabled', 'disabled');
+                    $('#requestSnow').text('Set Pickup');
+        
+                    $('#request').prop('disabled', 'disabled');
+                    $('#request').text('Set Pickup');
+                });
+
+    }
+
+    function completeRequestShadow(result, pickupLocation) {
+   
+       
+                displayUpdate('Shadow, your Purple unicorn, is on her way.', "Purple");
+                console.log(pickupLocation);
+                //  get the local weather, find nearby restaurants, movies
+                // getWeather(pickupLocation, unicorn)
+        
+                animateArrival(function animateCallback() {
+                    displayUpdate('Shadow has arrived. Giddy up!', "Purple");
+                    WildRydes.map.unsetLocation();
+
+                    $('#requestAsh').prop('disabled', 'disabled');
+                    $('#requestAsh').text('Set Pickup');
+
+                    $('#requestShadow').prop('disabled', 'disabled');
+                    $('#requestShadow').text('Set Pickup');
+
+                    $('#requestSnow').prop('disabled', 'disabled');
+                    $('#requestSnow').text('Set Pickup');
+        
+                    $('#request').prop('disabled', 'disabled');
+                    $('#request').text('Set Pickup');
+                });
+
+    }
+
+    function completeRequestAsh(result, pickupLocation) {
+  
+       
+        displayUpdate('Ash, your White unicorn, is not coming because he is afraid of cats. Good day.', "White");
+                
+    }
+
     // Register click handler for #request button
     $(function onDocReady() {
         getCatPic();
@@ -263,7 +395,7 @@ let map;
         getFact();
         getCatPic();
         event.preventDefault();
-        displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, is not coming because he is afraid of cats. Good day.', unicorn.Color);
+        requestUnicornAsh(pickupLocation);
     }
 
     function handleRequestClickSnow(event) {
@@ -272,26 +404,7 @@ let map;
         getFact();
         getCatPic();
         event.preventDefault();
-        displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, came to see the cat, and has forgotten about you.', unicorn.Color);
-                console.log(pickupLocation);
-                //  get the local weather, find nearby restaurants, movies
-                // getWeather(pickupLocation, unicorn)
-        
-                animateArrival(function animateCallback() {
-                    WildRydes.map.unsetLocation();
-
-                    $('#requestAsh').prop('disabled', 'disabled');
-                    $('#requestAsh').text('Set Pickup');
-
-                    $('#requestShadow').prop('disabled', 'disabled');
-                    $('#requestShadow').text('Set Pickup');
-
-                    $('#requestSnow').prop('disabled', 'disabled');
-                    $('#requestSnow').text('Set Pickup');
-        
-                    $('#request').prop('disabled', 'disabled');
-                    $('#request').text('Set Pickup');
-                });
+        requestUnicornSnow(pickupLocation);
     }
 
     function handleRequestClickShadow(event) {
@@ -299,27 +412,7 @@ let map;
 
         getFact();
         getCatPic();
-        displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, is on ' + pronoun + ' way.', unicorn.Color);
-                console.log(pickupLocation);
-                //  get the local weather, find nearby restaurants, movies
-                // getWeather(pickupLocation, unicorn)
-        
-                animateArrival(function animateCallback() {
-                    displayUpdate(unicorn.Name + ' has arrived. Giddy up!', unicorn.Color);
-                    WildRydes.map.unsetLocation();
-
-                    $('#requestAsh').prop('disabled', 'disabled');
-                    $('#requestAsh').text('Set Pickup');
-
-                    $('#requestShadow').prop('disabled', 'disabled');
-                    $('#requestShadow').text('Set Pickup');
-
-                    $('#requestSnow').prop('disabled', 'disabled');
-                    $('#requestSnow').text('Set Pickup');
-        
-                    $('#request').prop('disabled', 'disabled');
-                    $('#request').text('Set Pickup');
-                });
+        requestUnicornShadow(pickupLocation);
     }
 
     //  animateArrival
